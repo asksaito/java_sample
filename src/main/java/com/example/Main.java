@@ -7,6 +7,7 @@ public class Main {
         String src = "E:\\temp\\gradle_test\\apex.txt";
         String dest = "E:\\temp\\gradle_test\\out.txt";
 
+        // test
         FileIoLibrary.jdk1_0Style(src, dest);
     }
 }
