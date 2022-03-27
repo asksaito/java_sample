@@ -18,8 +18,6 @@ public class FileIoLibrary {
             writer = new BufferedOutputStream(new FileOutputStream(destFile));
 
             String str;
-            List<String> lines = new ArrayList<>();
-            int offset = 0;
             while ((str = reader.readLine()) != null) {
                 str += "\r\n";
                 byte[] binary = str.getBytes(Charset.forName("SJIS"));
