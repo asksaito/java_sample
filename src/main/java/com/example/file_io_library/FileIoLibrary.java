@@ -1,5 +1,8 @@
 package com.example.file_io_library;
 
+import com.google.common.io.CharSink;
+import com.google.common.io.CharSource;
+import com.google.common.io.FileWriteMode;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
 
@@ -111,14 +114,21 @@ public class FileIoLibrary {
         File srcFile = new File(srcPath);
         File destFile = new File(destPath);
 
-        try (BufferedReader br = com.google.common.io.Files.newReader(srcFile, StandardCharsets.UTF_8)) {
-            try (BufferedWriter bw = com.google.common.io.Files.newWriter(destFile, Charset.forName("SJIS"))) {
-                String line;
-                while ((line = br.readLine()) != null) {
-                    // ファイルに書き込み
-                    bw.write(line + System.lineSeparator());
-                }
-            }
-        }
+//        try (BufferedReader br = com.google.common.io.Files.newReader(srcFile, StandardCharsets.UTF_8)) {
+//            try (BufferedWriter bw = com.google.common.io.Files.newWriter(destFile, Charset.forName("SJIS"))) {
+//                String line;
+//                while ((line = br.readLine()) != null) {
+//                    // ファイルに書き込み
+//                    bw.write(line + System.lineSeparator());
+//                }
+//            }
+//        }
+
+        // Source file
+        CharSource charSource = com.google.common.io.Files.asCharSource(srcFile, StandardCharsets.UTF_8);
+        // Dest file
+        CharSink charSink = com.google.common.io.Files.asCharSink(destFile, Charset.forName("SJIS"));
+        // ファイルの中身をコピーする
+        charSource.copyTo(charSink);
     }
 }
