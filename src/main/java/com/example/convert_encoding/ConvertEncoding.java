@@ -2,14 +2,21 @@ package com.example.convert_encoding;
 
 import com.opencsv.CSVWriterBuilder;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import java.io.*;
+import java.net.URI;
 import java.nio.charset.Charset;
+import java.nio.charset.CharsetEncoder;
 import java.nio.charset.StandardCharsets;
+import java.nio.charset.UnmappableCharacterException;
+import java.nio.file.Files;
+import java.nio.file.OpenOption;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import static org.apache.commons.io.output.NullOutputStream.NULL_OUTPUT_STREAM;
 
 public class ConvertEncoding {
-    public static void main(String args[]) {
+    public static void encodingTest() throws IOException {
 //        String originalText = "このテキストは文字化けの起きない文字列です。";
 //        String originalText = "あ～あ①髙島屋パバぱ";
 //        String originalText = "テストＡＢＣ１２３４５";
@@ -48,8 +55,8 @@ public class ConvertEncoding {
         return utf8Text.equals(sjisText);
     }
 
-    private static void opencsvtest() throws IOException {
-        Writer writer = new FileWriter("yourfile.csv");
-        CSVWriterBuilder builder = new CSVWriterBuilder(writer);
+    private static boolean isConvert2(String utf8Text) {
+        CharsetEncoder encoder = Charset.forName("Shift_JIS").newEncoder();
+        return encoder.canEncode(utf8Text);
     }
 }

@@ -1,5 +1,6 @@
 package com.example;
 
+import com.example.convert_encoding.ConvertEncoding;
 import com.example.file_io_library.FileIoLibrary;
 import org.apache.commons.lang3.time.StopWatch;
 
@@ -12,38 +13,40 @@ public class Main {
 
         StopWatch stopWatch = new StopWatch();
 
-        // test JDK 1.0
-        stopWatch.start();
-        FileIoLibrary.jdk1_0Style(src, dest + "jdk10.txt");
-        stopWatch.stop();
-        System.out.println("JDK 1.0: " + stopWatch.getTime() + " (msec)");
+//        // test JDK 1.0
+//        stopWatch.start();
+//        FileIoLibrary.jdk1_0Style(src, dest + "jdk10.txt");
+//        stopWatch.stop();
+//        System.out.println("JDK 1.0: " + stopWatch.getTime() + " (msec)");
+//
+//        // test JDK 1.7
+//        stopWatch.reset();
+//        stopWatch.start();
+//        FileIoLibrary.jdk1_7Style(src, dest + "jdk17.txt");
+//        stopWatch.stop();
+//        System.out.println("JDK 1.7: " + stopWatch.getTime() + " (msec)");
+//
+//        // test JDK 1.8
+//        stopWatch.reset();
+//        stopWatch.start();
+//        FileIoLibrary.jdk1_8Style(src, dest + "jdk18.txt");
+//        stopWatch.stop();
+//        System.out.println("JDK 1.8: " + stopWatch.getTime() + " (msec)");
+//
+//        // test apache
+//        stopWatch.reset();
+//        stopWatch.start();
+//        FileIoLibrary.apacheCommonsStyle(src, dest + "apache.txt");
+//        stopWatch.stop();
+//        System.out.println("Apache: " + stopWatch.getTime() + " (msec)");
+//
+//        // test guava
+//        stopWatch.reset();
+//        stopWatch.start();
+//        FileIoLibrary.googleGuavaStyle(src, dest + "guava.txt");
+//        stopWatch.stop();
+//        System.out.println("Guava: " + stopWatch.getTime() + " (msec)");
 
-        // test JDK 1.7
-        stopWatch.reset();
-        stopWatch.start();
-        FileIoLibrary.jdk1_7Style(src, dest + "jdk17.txt");
-        stopWatch.stop();
-        System.out.println("JDK 1.7: " + stopWatch.getTime() + " (msec)");
-
-        // test JDK 1.8
-        stopWatch.reset();
-        stopWatch.start();
-        FileIoLibrary.jdk1_8Style(src, dest + "jdk18.txt");
-        stopWatch.stop();
-        System.out.println("JDK 1.8: " + stopWatch.getTime() + " (msec)");
-
-        // test apache
-        stopWatch.reset();
-        stopWatch.start();
-        FileIoLibrary.apacheCommonsStyle(src, dest + "apache.txt");
-        stopWatch.stop();
-        System.out.println("Apache: " + stopWatch.getTime() + " (msec)");
-
-        // test guava
-        stopWatch.reset();
-        stopWatch.start();
-        FileIoLibrary.googleGuavaStyle(src, dest + "guava.txt");
-        stopWatch.stop();
-        System.out.println("Guava: " + stopWatch.getTime() + " (msec)");
+        ConvertEncoding.encodingTest();
     }
 }
