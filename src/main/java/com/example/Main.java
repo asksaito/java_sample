@@ -2,6 +2,7 @@ package com.example;
 
 import com.example.convert_encoding.ConvertEncoding;
 import com.example.file_io_library.FileIoLibrary;
+import com.example.masked_string.MaskUtils;
 import org.apache.commons.lang3.time.StopWatch;
 
 public class Main {
@@ -47,6 +48,8 @@ public class Main {
 //        stopWatch.stop();
 //        System.out.println("Guava: " + stopWatch.getTime() + " (msec)");
 
-        ConvertEncoding.encodingTest();
+//        ConvertEncoding.encodingTest();
+
+        System.out.println(MaskUtils.rightMask("1234-5678-9012-3456", 5));
     }
 }
