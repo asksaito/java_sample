@@ -1,6 +1,6 @@
 package com.example;
 
-import com.example.currency.CurrencySample;
+import com.example.char_encoding.CharEncoding;
 import org.apache.commons.lang3.time.StopWatch;
 
 public class Main {
@@ -52,6 +52,8 @@ public class Main {
 
 //        MapVsFlatMap.example();
 
-        CurrencySample.viewCurrencyList();
+//        CurrencySample.viewCurrencyList();
+
+        CharEncoding.printHexBinary();
     }
 }
