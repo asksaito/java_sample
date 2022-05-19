@@ -1,6 +1,7 @@
 package com.example;
 
 import com.example.char_encoding.CharEncoding;
+import com.example.convert_encoding.ConvertCsv;
 import com.example.convert_encoding.ConvertEncoding;
 import org.apache.commons.lang3.time.StopWatch;
 
@@ -8,8 +9,8 @@ public class Main {
     public static void main(String args[]) throws Exception {
 //        String src = "E:\\temp\\gradle_test\\apex.txt";
 //        String dest = "E:\\temp\\gradle_test\\";
-        String src = "D:\\temp\\test\\sample.csv";
-        String dest = "D:\\temp\\test\\";
+        String src = "D:\\temp\\test\\GameHard.csv";
+        String dest = "D:\\temp\\test\\GameHard_SJIS.csv";
 
         StopWatch stopWatch = new StopWatch();
 
@@ -47,7 +48,7 @@ public class Main {
 //        stopWatch.stop();
 //        System.out.println("Guava: " + stopWatch.getTime() + " (msec)");
 
-        ConvertEncoding.encodingTest();
+//        ConvertEncoding.encodingTest();
 
 //        System.out.println(MaskUtils.rightMask("1234-5678-9012-3456", 5));
 
@@ -56,5 +57,7 @@ public class Main {
 //        CurrencySample.viewCurrencyList();
 
 //        CharEncoding.printHexBinary();
+
+        ConvertCsv.convertCsv(src, dest);
     }
 }
