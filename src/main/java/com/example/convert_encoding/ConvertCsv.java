@@ -18,6 +18,7 @@ public class ConvertCsv {
                 String line;
 
                 while ((line = br.readLine()) != null) {
+                    // 文字化け判定
                     if (!encoder.canEncode(line)) {
                         // 文字化けが発生する行をログに出力
                         System.out.println(line);
