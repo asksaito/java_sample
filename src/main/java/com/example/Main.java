@@ -3,7 +3,10 @@ package com.example;
 import com.example.char_encoding.CharEncoding;
 import com.example.convert_encoding.ConvertCsv;
 import com.example.convert_encoding.ConvertEncoding;
+import com.example.csv.ParseCsv;
 import org.apache.commons.lang3.time.StopWatch;
+
+import java.util.List;
 
 public class Main {
     public static void main(String args[]) throws Exception {
@@ -11,6 +14,7 @@ public class Main {
 //        String dest = "E:\\temp\\gradle_test\\";
         String src = "D:\\temp\\test\\GameHard.csv";
         String dest = "D:\\temp\\test\\GameHard_SJIS.csv";
+        String csvfile = "D:\\temp\\test\\parse_sample.csv";
 
         StopWatch stopWatch = new StopWatch();
 
@@ -58,6 +62,8 @@ public class Main {
 
 //        CharEncoding.printHexBinary();
 
-        ConvertCsv.convertCsv(src, dest);
+//        ConvertCsv.convertCsv(src, dest);
+
+        ParseCsv.parse(csvfile);
     }
 }
