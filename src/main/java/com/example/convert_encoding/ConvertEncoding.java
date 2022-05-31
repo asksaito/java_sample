@@ -29,19 +29,22 @@ public class ConvertEncoding {
 //            System.out.println("Unmatched!! : " + originalText);
 //        }
 
-        String text = "This is normal text.";
+//        String text = "This is normal text.";
+//        System.out.println(isConvert(text) + ": " + text);
+
+        String text = "このテキストは文字化けの起きない文字列です。";
         System.out.println(isConvert(text) + ": " + text);
 
-        text = "このテキストは文字化けの起きない文字列です。";
+        text = "髙"; // はしご高 (文字化けする)
         System.out.println(isConvert(text) + ": " + text);
 
-        text = "～"; // 全角チルダ (文字化けする)
+        text = "Ⅳ"; // ローマ数字 (文字化けする)
         System.out.println(isConvert(text) + ": " + text);
 
-        text = "～－￠￡￢―∥"; // 特殊な記号 (文字化けする)
+        text = "🍣🍺"; // 絵文字 (文字化けする)
         System.out.println(isConvert(text) + ": " + text);
 
-        text = "\uD852\uDC2B"; // サロゲートペア文字 (文字化けする)
+        text = "\uD840\uDC0B"; // サロゲートペア文字 (文字化けする)
         System.out.println(isConvert(text) + ": " + text);
     }
 

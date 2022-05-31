@@ -52,7 +52,7 @@ public class Main {
 //        stopWatch.stop();
 //        System.out.println("Guava: " + stopWatch.getTime() + " (msec)");
 
-//        ConvertEncoding.encodingTest();
+        ConvertEncoding.encodingTest();
 
 //        System.out.println(MaskUtils.rightMask("1234-5678-9012-3456", 5));
 
@@ -64,6 +64,6 @@ public class Main {
 
 //        ConvertCsv.convertCsv(src, dest);
 
-        ParseCsv.parse(csvfile);
+//        ParseCsv.parse(csvfile);
     }
 }
