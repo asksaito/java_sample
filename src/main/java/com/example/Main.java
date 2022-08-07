@@ -4,8 +4,11 @@ import com.example.char_encoding.CharEncoding;
 import com.example.convert_encoding.ConvertCsv;
 import com.example.convert_encoding.ConvertEncoding;
 import com.example.csv.ParseCsv;
+import com.example.csv.ParseCsvGuava;
+import com.google.common.base.Charsets;
 import org.apache.commons.lang3.time.StopWatch;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class Main {
@@ -52,7 +55,7 @@ public class Main {
 //        stopWatch.stop();
 //        System.out.println("Guava: " + stopWatch.getTime() + " (msec)");
 
-        ConvertEncoding.encodingTest();
+//        ConvertEncoding.encodingTest();
 
 //        System.out.println(MaskUtils.rightMask("1234-5678-9012-3456", 5));
 
@@ -65,5 +68,27 @@ public class Main {
 //        ConvertCsv.convertCsv(src, dest);
 
 //        ParseCsv.parse(csvfile);
+
+        /*
+        // Easy CSV 案
+        StringCsvReader stringCsvReader = new StringCsvReader(filePath, StandardCharsets.UTF_8);
+        String line = stringCsvReader.readLine();
+        List<String> stringList = stringCsvReader.readAll();
+
+        EasyCsvReader<SomeBean> csvReader = new EasyCsvReader(filePath, StandardCharsets.UTF_8);
+        SomeBean bean = csvReader.read();
+        List<SomeBean> list = csvReader.readAll();
+
+        EasyCsvReaderBuilder<SomeBean> builder = new EasyCsvReaderBuilder();
+        EasyCsvReader<SomeBean> csvReader =
+                builder.doubleQuote(true)
+                .encoding(Charsets.UTF_8)
+                .configuration(config)
+                .build();
+         */
+
+        ParseCsvGuava parseCsvGuava = new ParseCsvGuava();
+        parseCsvGuava.readCsvAsList("D:\\temp\\test\\GameHard.csv", false, Charsets.UTF_8);
+        parseCsvGuava.readCsvAsMap("D:\\temp\\test\\GameHardWithBOMWithHeader.csv", true, Charsets.UTF_8);
     }
 }
