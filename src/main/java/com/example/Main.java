@@ -5,6 +5,7 @@ import com.example.convert_encoding.ConvertCsv;
 import com.example.convert_encoding.ConvertEncoding;
 import com.example.csv.ParseCsv;
 import com.example.csv.ParseCsvGuava;
+import com.example.transliterator.TransliteratorExample;
 import com.google.common.base.Charsets;
 import org.apache.commons.lang3.time.StopWatch;
 
@@ -87,8 +88,44 @@ public class Main {
                 .build();
          */
 
-        ParseCsvGuava parseCsvGuava = new ParseCsvGuava();
-        parseCsvGuava.readCsvAsList("D:\\temp\\test\\GameHard.csv", false, Charsets.UTF_8);
-        parseCsvGuava.readCsvAsMap("D:\\temp\\test\\GameHardWithBOMWithHeader.csv", true, Charsets.UTF_8);
+//        ParseCsvGuava parseCsvGuava = new ParseCsvGuava();
+//        parseCsvGuava.readCsvAsList("D:\\temp\\test\\GameHard.csv", false, Charsets.UTF_8);
+//        parseCsvGuava.readCsvAsMap("D:\\temp\\test\\GameHardWithBOMWithHeader.csv", true, Charsets.UTF_8);
+
+        try {
+            System.out.println(TransliteratorExample.getAvailableIDs());
+//            NullPointerException
+            String text = "あいうえお";
+            System.out.println(text + " -> " + TransliteratorExample.zenkakuToHankaku(text));
+            text = "アイウエオ";
+            System.out.println(text + " -> " + TransliteratorExample.zenkakuToHankaku(text));
+            text = "ｳﾞｧｲｵﾘﾝ";
+            System.out.println(text + " -> " + TransliteratorExample.zenkakuToHankaku(text));
+            text = "abcdefg";
+            System.out.println(text + " -> " + TransliteratorExample.zenkakuToHankaku(text));
+            text = "ＡＢＣＤＥＦＧ";
+            System.out.println(text + " -> " + TransliteratorExample.zenkakuToHankaku(text));
+            text = "漢字";
+            System.out.println(text + " -> " + TransliteratorExample.zenkakuToHankaku(text));
+            text = "あいうえおアイウエオｳﾞｧｲｵﾘﾝabcdefgＡＢＣＤＥＦＧ漢字";
+            System.out.println(text + " -> " + TransliteratorExample.zenkakuToHankaku(text));
+
+            text = "あいうえお";
+            System.out.println(text + " -> " + TransliteratorExample.hankakuToZenkaku(text));
+            text = "アイウエオ";
+            System.out.println(text + " -> " + TransliteratorExample.hankakuToZenkaku(text));
+            text = "ｳﾞｧｲｵﾘﾝ";
+            System.out.println(text + " -> " + TransliteratorExample.hankakuToZenkaku(text));
+            text = "abcdefg";
+            System.out.println(text + " -> " + TransliteratorExample.hankakuToZenkaku(text));
+            text = "ＡＢＣＤＥＦＧ";
+            System.out.println(text + " -> " + TransliteratorExample.hankakuToZenkaku(text));
+            text = "漢字";
+            System.out.println(text + " -> " + TransliteratorExample.hankakuToZenkaku(text));
+            text = "あいうえおアイウエオｳﾞｧｲｵﾘﾝabcdefgＡＢＣＤＥＦＧ漢字";
+            System.out.println(text + " -> " + TransliteratorExample.hankakuToZenkaku(text));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
