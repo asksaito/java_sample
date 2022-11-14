@@ -128,16 +128,74 @@ public class Main {
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
+//
+//        CharacterExample.isZenkaku("a");
+//        CharacterExample.isZenkaku("あ");
+//        CharacterExample.isZenkaku("ア");
+//        CharacterExample.isZenkaku("ｱ");
+//        CharacterExample.isZenkaku(" ");
+//        CharacterExample.isZenkaku("　");
+//        CharacterExample.isZenkaku("0");
+//        CharacterExample.isZenkaku("\u000F"); // SIN
+//        CharacterExample.isZenkaku("\u007F"); // DEL
+//        CharacterExample.isZenkaku("漢字");
 
-        CharacterExample.isZenkaku("a");
-        CharacterExample.isZenkaku("あ");
-        CharacterExample.isZenkaku("ア");
-        CharacterExample.isZenkaku("ｱ");
-        CharacterExample.isZenkaku(" ");
-        CharacterExample.isZenkaku("　");
-        CharacterExample.isZenkaku("0");
-        CharacterExample.isZenkaku("\u000F"); // SIN
-        CharacterExample.isZenkaku("\u007F"); // DEL
-        CharacterExample.isZenkaku("漢字");
+//        String text = "ｱ";
+//        System.out.println(text + ": " + CharacterExample.isHankakuWithKana(text));
+//        text = "ｦ";
+//        System.out.println(text + ": " + CharacterExample.isHankakuWithKana(text));
+//        text = "ﾝ";
+//        System.out.println(text + ": " + CharacterExample.isHankakuWithKana(text));
+//        text = "｡｢｣ﾞﾟ";
+//        System.out.println(text + ": " + CharacterExample.isHankakuWithKana(text));
+//        text = "ﾗｯﾊﾟ";
+//        System.out.println(text + ": " + CharacterExample.isHankakuWithKana(text));
+//        text = "!";
+//        System.out.println(text + ": " + CharacterExample.isHankakuWithKana(text));
+//        text = "A";
+//        System.out.println(text + ": " + CharacterExample.isHankakuWithKana(text));
+//        text = "~";
+//        System.out.println(text + ": " + CharacterExample.isHankakuWithKana(text));
+//        text = "あ";
+//        System.out.println(text + ": " + CharacterExample.isHankakuWithKana(text));
+//        text = "ア";
+//        System.out.println(text + ": " + CharacterExample.isHankakuWithKana(text));
+//        text = "漢字ﾗｯﾊﾟ";
+//        System.out.println(text + ": " + CharacterExample.isHankakuWithKana(text));
+//        text = " ";
+//        System.out.println(text + ": " + CharacterExample.isHankakuWithKana(text));
+//        text = "　";
+//        System.out.println(text + ": " + CharacterExample.isHankakuWithKana(text));
+
+        String text = "漢字ﾗｯﾊﾟ";
+        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        text = "ｦ";
+        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        text = "ﾝ";
+        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        text = "｡｢｣ﾞﾟ";
+        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        text = "ﾗｯﾊﾟ";
+        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        text = "!";
+        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        text = "A";
+        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        text = "0";
+        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        text = "~";
+        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        text = "あ";
+        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        text = "ア";
+        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        text = "\u000F";
+        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        text = " ";
+        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        text = "　";
+        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        text = "「漢字ひらがなカタカナ！」";
+        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
     }
 }
