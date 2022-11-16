@@ -4,6 +4,8 @@ import com.google.common.base.CharMatcher;
 import org.apache.commons.lang3.StringUtils;
 
 import java.nio.charset.Charset;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class CharacterExample {
     public static void isZenkakuPrint(String text) {
@@ -25,25 +27,50 @@ public class CharacterExample {
         // or StandardCharsets.US_ASCII with JDK1.7+
     }
 
-    public static Boolean isAscii(String text) {
-        // ASCII文字
+    public static boolean isAscii(String text) {
+        // ASCII文字 (制御文字は含まない)
         return StringUtils.isAsciiPrintable(text);
     }
 
-    public static Boolean isHankakuKana(String text) {
+//    public static boolean isHalfWidth(String text) {
+//        return text.matches("^[｡-ﾟ]+$");
+//    }
+
+    public static boolean isHankakuKana(String text) {
         // 半角カタカナの正規表現
-        return text.matches("^[｡-ﾟ]+$");
+        return text.matches("^[ｦ-ﾟ]+$");
+        // https://en.wikipedia.org/wiki/Halfwidth_and_Fullwidth_Forms_(Unicode_block)
     }
 
-    public static Boolean isZenkaku(String text) {
+    public static boolean isZenkakuKana(String text) {
+        // 全角カタカナの正規表現
+        return text.matches("^[ァ-ヴー]+$");
+        // https://en.wikipedia.org/wiki/Katakana_%28Unicode_block%29
+    }
+
+    public static boolean isHiragana(String text) {
+        // ひらがなの正規表現
+        return text.matches("^[ぁ-ん]+$");
+        // https://en.wikipedia.org/wiki/Hiragana_%28Unicode_block%29
+    }
+
+    public static boolean isHankaku(String text) {
+        // 半角 ＝ ASCII文字 or 半角カナ
+        return text.chars()
+                .mapToObj(Character::toString)
+                .allMatch((c) -> isAscii(c) || isHankakuKana(c));
+    }
+
+    public static boolean isZenkaku(String text) {
         // 全角 ＝ 半角文字 or 制御文字 以外
         return text.chars()
-                .noneMatch((c) -> isHankaku(Character.toString(c)) || Character.isISOControl(c));
+                .noneMatch((cp) -> isHankaku(Character.toString(cp)) || Character.isISOControl(cp));
     }
 
-    public static Boolean isHankaku(String text) {
-        // 半角 ＝ ASCII文字 or 半角カナ
-        return isAscii(text) || isHankakuKana(text);
-    }
+    // 半角文字
+    // 全角文字
+    // 半角カナ
+    // 全角カナ
+    // ひらがな
 
 }

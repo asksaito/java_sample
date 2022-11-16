@@ -197,5 +197,20 @@ public class Main {
         System.out.println(text + ": " + CharacterExample.isZenkaku(text));
         text = "「漢字ひらがなカタカナ！」";
         System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+
+        text = "ABCxyzｱｲｳ";
+        System.out.println(text + ": " + CharacterExample.isHankaku(text));
+        text = "｡｢｣";
+        System.out.println(text + ": " + CharacterExample.isHankaku(text));
+        text = "＼";
+        System.out.println(text + ": " + CharacterExample.isHankaku(text));
+
+        text = "ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴ";
+        System.out.println(text + ": " + CharacterExample.isZenkakuKana(text));
+        text = "ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ";
+        System.out.println(text + ": " + CharacterExample.isZenkakuKana(text));
+
+        text = "ぁあぃいをん";
+        System.out.println(text + ": " + CharacterExample.isHiragana(text));
     }
 }
