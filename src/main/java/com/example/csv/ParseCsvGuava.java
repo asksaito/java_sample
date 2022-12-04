@@ -15,11 +15,7 @@ import java.util.Map;
 
 public class ParseCsvGuava {
     public void readCsvAsList(String filePath, boolean doubleQuote, Charset encoding) throws IOException {
-        StringBuilder sb = new StringBuilder();
-        if (doubleQuote) {
-            sb.append("\"");
-        }
-        final String enclosure = sb.toString();
+        final String enclosure = doubleQuote ? "\"" : "";
 
         Files.asCharSource(new File(filePath), encoding)
                 .lines()
@@ -34,11 +30,7 @@ public class ParseCsvGuava {
 
 
     public void readCsvAsMap(String filePath, boolean doubleQuote, Charset encoding) throws IOException {
-        StringBuilder sb = new StringBuilder();
-        if (doubleQuote) {
-            sb.append("\"");
-        }
-        final String enclosure = sb.toString();
+        final String enclosure = doubleQuote ? "\"" : "";
         CharSource charSource = Files.asCharSource(new File(filePath), encoding);
 
         // ヘッダ行

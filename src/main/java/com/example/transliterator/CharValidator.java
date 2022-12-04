@@ -4,10 +4,8 @@ import com.google.common.base.CharMatcher;
 import org.apache.commons.lang3.StringUtils;
 
 import java.nio.charset.Charset;
-import java.util.Arrays;
-import java.util.stream.Stream;
 
-public class CharacterExample {
+public class CharValidator {
     public static void isZenkakuPrint(String text) {
 //        System.out.println("alphabetic: " + Character.isAlphabetic(String.valueOf(ch).codePointAt(0)));
 //        Boolean result = !(Character.isAlphabetic(ch) || Character.isDigit(ch) || Character.isISOControl(ch)

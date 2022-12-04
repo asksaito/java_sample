@@ -1,17 +1,7 @@
 package com.example;
 
-import com.example.char_encoding.CharEncoding;
-import com.example.convert_encoding.ConvertCsv;
-import com.example.convert_encoding.ConvertEncoding;
-import com.example.csv.ParseCsv;
-import com.example.csv.ParseCsvGuava;
-import com.example.transliterator.CharacterExample;
-import com.example.transliterator.TransliteratorExample;
-import com.google.common.base.Charsets;
+import com.example.transliterator.CharValidator;
 import org.apache.commons.lang3.time.StopWatch;
-
-import java.nio.charset.StandardCharsets;
-import java.util.List;
 
 public class Main {
     public static void main(String args[]) throws Exception {
@@ -168,49 +158,49 @@ public class Main {
 //        System.out.println(text + ": " + CharacterExample.isHankakuWithKana(text));
 
         String text = "漢字ﾗｯﾊﾟ";
-        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        System.out.println(text + ": " + CharValidator.isZenkaku(text));
         text = "ｦ";
-        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        System.out.println(text + ": " + CharValidator.isZenkaku(text));
         text = "ﾝ";
-        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        System.out.println(text + ": " + CharValidator.isZenkaku(text));
         text = "｡｢｣ﾞﾟ";
-        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        System.out.println(text + ": " + CharValidator.isZenkaku(text));
         text = "ﾗｯﾊﾟ";
-        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        System.out.println(text + ": " + CharValidator.isZenkaku(text));
         text = "!";
-        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        System.out.println(text + ": " + CharValidator.isZenkaku(text));
         text = "A";
-        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        System.out.println(text + ": " + CharValidator.isZenkaku(text));
         text = "0";
-        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        System.out.println(text + ": " + CharValidator.isZenkaku(text));
         text = "~";
-        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        System.out.println(text + ": " + CharValidator.isZenkaku(text));
         text = "あ";
-        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        System.out.println(text + ": " + CharValidator.isZenkaku(text));
         text = "ア";
-        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        System.out.println(text + ": " + CharValidator.isZenkaku(text));
         text = "\u000F";
-        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        System.out.println(text + ": " + CharValidator.isZenkaku(text));
         text = " ";
-        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        System.out.println(text + ": " + CharValidator.isZenkaku(text));
         text = "　";
-        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        System.out.println(text + ": " + CharValidator.isZenkaku(text));
         text = "「漢字ひらがなカタカナ！」";
-        System.out.println(text + ": " + CharacterExample.isZenkaku(text));
+        System.out.println(text + ": " + CharValidator.isZenkaku(text));
 
         text = "ABCxyzｱｲｳ";
-        System.out.println(text + ": " + CharacterExample.isHankaku(text));
+        System.out.println(text + ": " + CharValidator.isHankaku(text));
         text = "｡｢｣";
-        System.out.println(text + ": " + CharacterExample.isHankaku(text));
+        System.out.println(text + ": " + CharValidator.isHankaku(text));
         text = "＼";
-        System.out.println(text + ": " + CharacterExample.isHankaku(text));
+        System.out.println(text + ": " + CharValidator.isHankaku(text));
 
         text = "ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴ";
-        System.out.println(text + ": " + CharacterExample.isZenkakuKana(text));
+        System.out.println(text + ": " + CharValidator.isZenkakuKana(text));
         text = "ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ";
-        System.out.println(text + ": " + CharacterExample.isZenkakuKana(text));
+        System.out.println(text + ": " + CharValidator.isZenkakuKana(text));
 
         text = "ぁあぃいをん";
-        System.out.println(text + ": " + CharacterExample.isHiragana(text));
+        System.out.println(text + ": " + CharValidator.isHiragana(text));
     }
 }
